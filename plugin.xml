@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="traxia-smart-location" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>TRAXIA Location</name>
+    <description>Plugin for TRAXIA mobile apps</description>
+    
+	<license>Apache 2.0</license>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+			<feature name="TRAXIALocationPlugin">
+				<param name="android-package" value="id.traxia.plugin.TRAXIALocationPlugin" />
+				<param name="onload" value="true" />
+			</feature>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<service
+			android:enabled="true"
+			android:name="id.traxia.backgroundservice.TRAXIASmartLocation"></service>
+			
+			<receiver
+				android:enabled="true"
+				android:exported="true"
+				android:name="id.traxia.broadcast.receiver.BootCompleted">
+				<intent-filter>
+					<action android:name="android.intent.action.BOOT_COMPLETED"/>
+				</intent-filter>
+			</receiver>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/*">
+		
+			<uses-feature android:name="android.hardware.location.gps" />		
+			<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+			<uses-permission android:name="android.hardware.location" />
+			<uses-permission android:name="android.permission.VIBRATE" />
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.WAKE_LOCK" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+			
+		</config-file>
+        <source-file src="src/android/id/traxia/plugin/TRAXIALocationPlugin.java" target-dir="src/id/traxia/plugin" />
+        <source-file src="src/android/id/traxia/plugin/StringParser.java" target-dir="src/id/traxia/plugin" />
+		<source-file src="src/android/id/traxia/backgroundservice/TRAXIASmartLocation.java" target-dir="src/id/traxia/backgroundservice" />
+		<source-file src="src/android/id/traxia/API/getAPI.java" target-dir="src/id/traxia/API"/>
+		<source-file src="src/android/id/traxia/API/postAPI.java" target-dir="src/id/traxia/API"/>
+		<source-file src="src/android/id/traxia/broadcast/receiver/BootCompleted.java" target-dir="src/id/traxia/APIbroadcast/receiver"/>
+    </platform>
+	
+	<js-module name="TRAXIASmartLocation" src="www/TRAXIA.js">
+		<clobbers target="TRAXIAPlugin" />
+	</js-module>
+	
+</plugin>

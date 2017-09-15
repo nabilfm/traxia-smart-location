@@ -1,0 +1,24 @@
+{
+  "name": "traxia-smart-location",
+  "version": "1.0.0",
+  "description": "only for traxia apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nabilfm/traxia-smart-location.git"
+  },
+  "keywords": [
+    "traxia",
+    "smart",
+    "location"
+  ],
+  "author": "DIGITALINSTINCTS Teknologi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nabilfm/traxia-smart-location/issues"
+  },
+  "homepage": "https://github.com/nabilfm/traxia-smart-location#readme"
+}
