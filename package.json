@@ -1,6 +1,6 @@
 {
   "name": "traxia-smart-location",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "only for traxia apps",
   "main": "index.js",
   "scripts": {
